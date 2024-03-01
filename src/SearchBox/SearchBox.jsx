@@ -9,7 +9,7 @@ const SearchBox = ({ name, findName }) => {
         type="text"
         name="text"
         value={name}
-        onChange={findName}
+        onChange={(e) => findName(e.target.value)}
       />
     </div>
   );
