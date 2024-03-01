@@ -1,0 +1,17 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.inputDescription {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  color: black;
+}
+
+.fieldToFill {
+  height: 32px;
+}

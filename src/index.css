@@ -1,6 +1,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  display: flex;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -34,8 +35,9 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #000000;
   margin-bottom: 32px;
+  color: #000000;
+  text-align: start;
 }
 
 p {
