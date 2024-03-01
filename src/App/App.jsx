@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import ContactList from "../ContactList/ContactList";
 import SearchBox from "../SearchBox/SearchBox";
+import ContactForm from "../ContactForm/ContactForm";
 
 import "./App.css";
 
@@ -19,12 +20,14 @@ function App() {
     contact.name.toLowerCase().includes(input.toLowerCase())
   );
 
-  // const addContact = () => {};
+  const addContact = (values, actions) => {
+    actions.resetForm();
+  };
 
   return (
     <>
       <h1>Phonebook</h1>
-      {/* <ContactForm /> */}
+      <ContactForm addUser={addContact} />
       <SearchBox name={input} findName={setInput} />
       <ContactList users={filteredContacts} />
     </>
