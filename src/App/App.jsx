@@ -16,8 +16,8 @@ function App() {
   const [input, setInput] = useState("");
 
   const handleChange = () => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(input)
+    setInput(
+      contacts.filter((contact) => contact.name.toLowerCase().includes(input))
     );
   };
 
