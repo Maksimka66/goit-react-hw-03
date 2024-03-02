@@ -14,15 +14,17 @@ function App() {
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ]);
 
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
+  };
+
   const [input, setInput] = useState("");
 
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(input.toLowerCase())
   );
-
-  const addContact = (values, actions) => {
-    actions.resetForm();
-  };
 
   return (
     <>
