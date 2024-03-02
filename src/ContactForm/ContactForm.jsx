@@ -9,7 +9,7 @@ import styles from "./ContactForm.module.css";
 const ContactForm = ({ addUser }) => {
   const initialValues = {
     name: "",
-    phone: "",
+    number: "",
   };
 
   const nameId = useId();
