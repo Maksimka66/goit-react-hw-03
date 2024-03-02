@@ -8,6 +8,7 @@ const ContactList = ({ users, removeUser }) => {
       {users.map((user) => (
         <Contact
           key={user.id}
+          id={user.id}
           name={user.name}
           number={user.number}
           removeUser={removeUser}
