@@ -17,13 +17,13 @@ const ContactForm = ({ addUser }) => {
 
   const userForm = Yup.object().shape({
     name: Yup.string()
-      .min(3, "Too short!")
-      .max(50, "Too long!")
-      .required("Required!"),
+      .min(3, <span className={styles.message}>Too short!</span>)
+      .max(50, <span className={styles.message}>Too long!</span>)
+      .required(<span className={styles.message}>Required!</span>),
     number: Yup.string()
-      .min(3, "Too short!")
-      .max(50, "Too long!")
-      .required("Required!"),
+      .min(3, <span className={styles.message}>Too short!</span>)
+      .max(50, <span className={styles.message}>Too long!</span>)
+      .required(<span className={styles.message}>Required!</span>),
   });
 
   const submitForm = (values, actions) => {
