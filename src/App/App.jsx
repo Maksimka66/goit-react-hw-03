@@ -26,12 +26,18 @@ function App() {
     contact.name.toLowerCase().includes(input.toLowerCase())
   );
 
+  const deleteContact = (contactId) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((contact) => contact.id !== contactId);
+    });
+  };
+
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm addUser={addContact} />
       <SearchBox name={input} findName={setInput} />
-      <ContactList users={filteredContacts} />
+      <ContactList users={filteredContacts} removeUser={deleteContact} />
     </>
   );
 }
