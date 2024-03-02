@@ -46,7 +46,12 @@ const ContactForm = ({ addUser }) => {
           <label className={styles.fieldDescription} htmlFor={nameId}>
             Name
           </label>
-          <Field className={styles.formItem} type="text" name="name" />
+          <Field
+            className={styles.formItem}
+            type="text"
+            name="name"
+            id={nameId}
+          />
           <ErrorMessage className={styles.errorItem} name="name" as="span" />
         </div>
 
@@ -54,7 +59,12 @@ const ContactForm = ({ addUser }) => {
           <label className={styles.fieldDescription} htmlFor={numberId}>
             Number
           </label>
-          <Field className={styles.formItem} type="number" name="number" />
+          <Field
+            className={styles.formItem}
+            type="number"
+            name="number"
+            id={numberId}
+          />
           <ErrorMessage className={styles.errorItem} name="number" as="span" />
         </div>
 
