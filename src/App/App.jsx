@@ -6,22 +6,28 @@ import ContactForm from "../ContactForm/ContactForm";
 
 import "./App.css";
 
+const initialContacts = [
+  { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+  { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+  { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+  { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+];
+
 function App() {
   const [contacts, setContacts] = useState(() => {
     const contactsList = window.localStorage.getItem("saved-contacts");
-    return contactsList
-      ? JSON.parse(contactsList)
-      : [
-          { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-          { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-          { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-          { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-        ];
+    console.log(contactsList);
+    return contactsList ? JSON.parse(contactsList) : initialContacts;
   });
 
   const addContact = (newContact) => {
     setContacts((prevContacts) => {
-      return [...prevContacts, newContact];
+      const updatedContacts = [...prevContacts, newContact];
+      window.localStorage.setItem(
+        "saved-contacts",
+        JSON.stringify(updatedContacts)
+      );
+      return updatedContacts;
     });
   };
 
@@ -33,13 +39,26 @@ function App() {
 
   const deleteContact = (contactId) => {
     setContacts((prevContacts) => {
-      return prevContacts.filter((contact) => contact.id !== contactId);
+      const filteredContacts = prevContacts.filter(
+        (contact) => contact.id !== contactId
+      );
+      window.localStorage.setItem(
+        "saved-contacts",
+        JSON.stringify(filteredContacts)
+      );
+      return filteredContacts;
     });
   };
 
   useEffect(() => {
-    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
-  }, [contacts]);
+    const contactsList = window.localStorage.getItem("saved-contacts");
+    if (!contactsList) {
+      window.localStorage.setItem(
+        "saved-contacts",
+        JSON.stringify(initialContacts)
+      );
+    }
+  }, []);
 
   return (
     <>
