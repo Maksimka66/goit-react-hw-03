@@ -22,10 +22,6 @@ function App() {
   const addContact = (newContact) => {
     setContacts((prevContacts) => {
       const updatedContacts = [...prevContacts, newContact];
-      window.localStorage.setItem(
-        "saved-contacts",
-        JSON.stringify(updatedContacts)
-      );
       return updatedContacts;
     });
   };
@@ -41,25 +37,13 @@ function App() {
       const filteredContacts = prevContacts.filter(
         (contact) => contact.id !== contactId
       );
-      window.localStorage.setItem(
-        "saved-contacts",
-        JSON.stringify(filteredContacts)
-      );
       return filteredContacts;
     });
   };
 
   useEffect(() => {
-    const contactsList = JSON.parse(
-      window.localStorage.getItem("saved-contacts")
-    );
-    if (!contactsList) {
-      window.localStorage.setItem(
-        "saved-contacts",
-        JSON.stringify(initialContacts)
-      );
-    }
-  }, []);
+    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <>
