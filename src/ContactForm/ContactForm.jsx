@@ -8,21 +8,21 @@ import styles from "./ContactForm.module.css";
 
 const ContactForm = ({ addUser }) => {
   const initialValues = {
-    username: "",
-    userphone: "",
+    name: "",
+    phone: "",
   };
 
   const nameId = useId();
   const numberId = useId();
 
   const userForm = Yup.object().shape({
-    username: Yup.string()
+    name: Yup.string()
       .min(3, "Too short!")
       .max(50, "Too long!")
       .required("Required!"),
-    userphone: Yup.string()
+    number: Yup.string()
       .min(3, "Too short!")
-      .max(5, "Too long!")
+      .max(50, "Too long!")
       .required("Required!"),
   });
 
@@ -46,16 +46,16 @@ const ContactForm = ({ addUser }) => {
           <label className={styles.fieldDescription} htmlFor={nameId}>
             Name
           </label>
-          <Field className={styles.formItem} type="text" name="username" />
-          <ErrorMessage name="username" as="span" />
+          <Field className={styles.formItem} type="text" name="name" />
+          <ErrorMessage className={styles.errorItem} name="name" as="span" />
         </div>
 
         <div className={styles.formContainer}>
           <label className={styles.fieldDescription} htmlFor={numberId}>
             Number
           </label>
-          <Field className={styles.formItem} type="number" name="userphone" />
-          <ErrorMessage name="userphone" as="span" />
+          <Field className={styles.formItem} type="number" name="number" />
+          <ErrorMessage className={styles.errorItem} name="number" as="span" />
         </div>
 
         <button className={styles.submitBtn} type="submit">

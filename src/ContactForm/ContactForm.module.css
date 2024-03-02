@@ -26,6 +26,11 @@
   border-radius: 8px;
 }
 
+.errorItem {
+  font-size: 24px;
+  color: red;
+}
+
 .submitBtn {
   background-color: #d3d3d3;
   font-size: 32px;
