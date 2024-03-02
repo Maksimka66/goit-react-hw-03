@@ -16,7 +16,6 @@ const initialContacts = [
 function App() {
   const [contacts, setContacts] = useState(() => {
     const contactsList = window.localStorage.getItem("saved-contacts");
-    console.log(contactsList);
     return contactsList ? JSON.parse(contactsList) : initialContacts;
   });
 
@@ -51,7 +50,9 @@ function App() {
   };
 
   useEffect(() => {
-    const contactsList = window.localStorage.getItem("saved-contacts");
+    const contactsList = JSON.parse(
+      window.localStorage.getItem("saved-contacts")
+    );
     if (!contactsList) {
       window.localStorage.setItem(
         "saved-contacts",
