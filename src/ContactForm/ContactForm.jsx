@@ -61,7 +61,7 @@ const ContactForm = ({ addUser }) => {
           </label>
           <Field
             className={styles.formItem}
-            type="number"
+            type="tel"
             name="number"
             id={numberId}
           />
